@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
 "start": "node api/products.js", 
-    "build": "echo 'No build necessary'"
+    "vercel-build": "echo Hello"
   },
   "keywords": [],
   "author": "",
