@@ -4,7 +4,7 @@ const serverless = require('serverless-http'); // Importer serverless-http
 const app = express();
 
 // Charger les données depuis le fichier JSON
-const productsData = require('../data.json');
+const productsData = require('./data.json');
 
 // Ajouter des IDs dynamiques aux produits
 const productsWithIds = productsData.products.map((product, index) => {
