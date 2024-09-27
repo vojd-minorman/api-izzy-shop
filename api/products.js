@@ -1,29 +1,25 @@
+// api/products.js
 const express = require('express');
-const cors = require('cors');  // Importer CORS
+const serverless = require('serverless-http'); // Importer serverless-http
 const app = express();
-const port = 3000;
 
 // Charger les données depuis le fichier JSON
-const productsData = require('./data.json');
+const productsData = require('../data.json');
 
-// Utiliser le middleware CORS
-app.use(cors());
-
-// Ajouter des IDs dynamiques aux produits (en fonction de leur index)
+// Ajouter des IDs dynamiques aux produits
 const productsWithIds = productsData.products.map((product, index) => {
   return { ...product, id: index };
 });
 
 // Route pour récupérer tous les produits
-app.get('/products', (req, res) => {
+app.get('/api/products', (req, res) => {
   res.json(productsWithIds);
 });
 
-// Route pour récupérer un produit spécifique via son ID
-app.get('/products/:id', (req, res) => {
+// Route pour récupérer un produit spécifique
+app.get('/api/products/:id', (req, res) => {
   const productId = parseInt(req.params.id);
   const product = productsWithIds.find(p => p.id === productId);
-
   if (product) {
     res.json(product);
   } else {
@@ -31,7 +27,5 @@ app.get('/products/:id', (req, res) => {
   }
 });
 
-// Démarrer le serveur sur le port 3000
-app.listen(port, () => {
-  console.log(`API démarrée sur http://localhost:${port}`);
-});
+// Exporter la fonction pour Vercel
+module.exports = serverless(app); // Utiliser serverless-http
