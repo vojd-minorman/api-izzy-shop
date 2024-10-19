@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-"start": "node api/products.js", 
+    "start": "node api/products.js",
     "vercel-build": "echo Hello"
   },
   "keywords": [],
@@ -14,5 +14,8 @@
     "cors": "^2.8.5",
     "express": "^4.21.0",
     "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.7"
   }
 }
