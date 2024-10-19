@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node api/products.ts",
+    "start": "node server.js",
     "vercel-build": "echo Hello"
   },
   "keywords": [],
